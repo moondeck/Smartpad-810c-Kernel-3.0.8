@@ -74,14 +74,9 @@ obj-$(CONFIG_VIDEO_M5MOLS)	+= m5mols/
 obj-$(CONFIG_SOC_CAMERA_IMX074)		+= imx074.o
 obj-$(CONFIG_SOC_CAMERA_MT9M001)	+= mt9m001.o
 obj-$(CONFIG_SOC_CAMERA_MT9M111)	+= mt9m111.o
-obj-$(CONFIG_SOC_CAMERA_MT9M112)	+= mt9m112.o
 obj-$(CONFIG_SOC_CAMERA_MT9T031)	+= mt9t031.o
-obj-$(CONFIG_SOC_CAMERA_MT9T111)	+= mt9t111.o
 obj-$(CONFIG_SOC_CAMERA_MT9T112)	+= mt9t112.o
 obj-$(CONFIG_SOC_CAMERA_MT9V022)	+= mt9v022.o
-obj-$(CONFIG_SOC_CAMERA_MT9P111)	+= mt9p111.o
-obj-$(CONFIG_SOC_CAMERA_MT9D112)	+= mt9d112.o
-obj-$(CONFIG_SOC_CAMERA_MT9D113)	+= mt9d113.o
 obj-$(CONFIG_SOC_CAMERA_OV2640)		+= ov2640.o
 obj-$(CONFIG_SOC_CAMERA_OV6650)		+= ov6650.o
 obj-$(CONFIG_SOC_CAMERA_OV772X)		+= ov772x.o
@@ -89,56 +84,7 @@ obj-$(CONFIG_SOC_CAMERA_OV9640)		+= ov9640.o
 obj-$(CONFIG_SOC_CAMERA_OV9740)		+= ov9740.o
 obj-$(CONFIG_SOC_CAMERA_RJ54N1)		+= rj54n1cb0c.o
 obj-$(CONFIG_SOC_CAMERA_TW9910)		+= tw9910.o
-obj-$(CONFIG_SOC_CAMERA_OV7675)		+= ov7675.o
-obj-$(CONFIG_SOC_CAMERA_OV2655)		+= ov2655.o
-obj-$(CONFIG_SOC_CAMERA_OV2655_BACK)		+= ov2655_back.o
-obj-$(CONFIG_SOC_CAMERA_OV2659)		+= ov2659.o
-obj-$(CONFIG_SOC_CAMERA_OV7690)		+= ov7690.o
 
-ifdef CONFIG_MACH_M900
-obj-$(CONFIG_SOC_CAMERA_FCAM)	+= fcam.o ov2655.o nt99250.o gc0307.o gt2005_m900.o ov7675.o gc0308.o
-else ifdef CONFIG_OLD_NT99250
-obj-$(CONFIG_SOC_CAMERA_FCAM)	+= fcam.o ov2655.o nt99250_803.o gc0307.o gt2005.o ov7675.o gc0308.o
-else
-obj-$(CONFIG_SOC_CAMERA_FCAM)	+= fcam.o ov2655.o nt99250_803.o gc0307.o gt2005.o ov7675.o gc0308.o
-endif
-
-obj-$(CONFIG_SOC_CAMERA_BCAM)	+= bcam.o nt99250_back.o gt2005_back.o ov5642.o ov5640.o ov5640forgt2005.o ov5642forgt2005.o ov2655_back.o
-
-obj-$(CONFIG_SOC_CAMERA_OV9650)		+= ov9650.o
-obj-$(CONFIG_SOC_CAMERA_OV2640)		+= ov2640.o
-obj-$(CONFIG_SOC_CAMERA_OV3640)		+= ov3640.o
-obj-$(CONFIG_SOC_CAMERA_OV5640)		+= ov5640.o
-#obj-$(CONFIG_SOC_CAMERA_OV5640)		+= ov5640forgt2005.o
-obj-$(CONFIG_SOC_CAMERA_OV5640_FOR_TD8801)		+= ov5640_for_td8801.o
-obj-$(CONFIG_SOC_CAMERA_OV5642)		+= ov5642.o
-#obj-$(CONFIG_SOC_CAMERA_OV5642)		+= ov5642forgt2005.o
-obj-$(CONFIG_SOC_CAMERA_S5K6AA)		+= s5k6aa.o
-
-ifdef CONFIG_MACH_M900
-obj-$(CONFIG_SOC_CAMERA_GT2005)	+= gt2005_m900.o
-else
-obj-$(CONFIG_SOC_CAMERA_GT2005)	+= gt2005.o
-endif 
-
-obj-$(CONFIG_SOC_CAMERA_GT2005_BACK)		+= gt2005_back.o
-obj-$(CONFIG_SOC_CAMERA_GC0307)		+= gc0307.o
-obj-$(CONFIG_SOC_CAMERA_GC0308)		+= gc0308.o
-obj-$(CONFIG_SOC_CAMERA_GC0309)		+= gc0309.o
-obj-$(CONFIG_SOC_CAMERA_GC0309_FOR_TD8801)		+= gc0309_for_td8801.o
-obj-$(CONFIG_SOC_CAMERA_GC2015)		+= gc2015.o
-obj-$(CONFIG_SOC_CAMERA_SIV120B)	+= siv120b.o
-obj-$(CONFIG_SOC_CAMERA_SID130B)	+= sid130B.o
-obj-$(CONFIG_SOC_CAMERA_HI253)	+= hi253.o
-obj-$(CONFIG_SOC_CAMERA_HI704)	+= hi704.o
-
-ifdef CONFIG_OLD_NT99250
-obj-$(CONFIG_SOC_CAMERA_NT99250)	+= nt99250_803.o
-else
-obj-$(CONFIG_SOC_CAMERA_NT99250)	+= nt99250.o
-endif 
-
-obj-$(CONFIG_SOC_CAMERA_NT99250_BACK)	+= nt99250_back.o 
 # And now the v4l2 drivers:
 
 obj-$(CONFIG_VIDEO_BT848) += bt8xx/
@@ -217,9 +163,6 @@ obj-$(CONFIG_VIDEO_MX1)			+= mx1_camera.o
 obj-$(CONFIG_VIDEO_MX2)			+= mx2_camera.o
 obj-$(CONFIG_VIDEO_MX3)			+= mx3_camera.o
 obj-$(CONFIG_VIDEO_PXA27x)		+= pxa_camera.o
-obj-$(CONFIG_VIDEO_RK29_WORK_ONEFRAME)	+= rk29_camera_oneframe.o
-obj-$(CONFIG_VIDEO_RK29_WORK_PINGPONG)	+= rk29_camera_pingpong.o
-obj-$(CONFIG_VIDEO_RK29XX_VOUT)		+= rk29xx/
 obj-$(CONFIG_VIDEO_SH_MOBILE_CSI2)	+= sh_mobile_csi2.o
 obj-$(CONFIG_VIDEO_SH_MOBILE_CEU)	+= sh_mobile_ceu_camera.o
 obj-$(CONFIG_VIDEO_OMAP1)		+= omap1_camera.o

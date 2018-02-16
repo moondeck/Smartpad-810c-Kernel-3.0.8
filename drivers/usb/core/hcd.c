@@ -1956,7 +1956,6 @@ int hcd_bus_suspend(struct usb_device *rhdev, pm_message_t msg)
 	}
 
 	if (!hcd->driver->bus_suspend) {
-		printk("%s,error,everest\n",__func__);
 		status = -ENOENT;
 	} else {
 		clear_bit(HCD_FLAG_RH_RUNNING, &hcd->flags);

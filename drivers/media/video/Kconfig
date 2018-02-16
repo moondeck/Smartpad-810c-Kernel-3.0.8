@@ -70,7 +70,6 @@ config VIDEOBUF2_DMA_SG
 # Multimedia Video device configuration
 #
 
-source "drivers/media/video/rk29xx/Kconfig"
 menuconfig VIDEO_CAPTURE_DRIVERS
 	bool "Video capture adapters"
 	depends on VIDEO_V4L2
@@ -783,15 +782,6 @@ config SOC_CAMERA
 	  over a bus like PCI or USB. For example some i2c camera connected
 	  directly to the data bus of an SoC.
 
-config OLD_NT99250
-	tristate "SoC camera support"
-	depends on VIDEO_V4L2 && HAS_DMA && I2C
-	select VIDEOBUF_GEN
-	help
-	  SoC Camera is a common API to several cameras, not connecting
-	  over a bus like PCI or USB. For example some i2c camera connected
-	  directly to the data bus of an SoC.
-
 config SOC_CAMERA_IMX074
 	tristate "imx074 support"
 	depends on SOC_CAMERA && I2C
@@ -813,39 +803,11 @@ config SOC_CAMERA_MT9M111
 	  This driver supports MT9M111, MT9M112 and MT9M131 cameras from
 	  Micron/Aptina
 
-config SOC_CAMERA_MT9M112
-	tristate "mt9m112 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This driver supports MT9M112 cameras from Micron
-
 config SOC_CAMERA_MT9T031
 	tristate "mt9t031 support"
 	depends on SOC_CAMERA && I2C
 	help
 	  This driver supports MT9T031 cameras from Micron.
-
-config SOC_CAMERA_MT9T111
-	tristate "mt9t111 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This driver supports MT9T111 cameras from Micron.
-config SOC_CAMERA_MT9P111
-	tristate "mt9p111 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This driver supports MT9P111 cameras from Micron.
-config SOC_CAMERA_MT9D112
-	tristate "mt9d112 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This driver supports MT9D112 cameras from Micron
-
-config SOC_CAMERA_MT9D113
-	tristate "mt9d113 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This driver supports MT9D113 cameras from Micron
 
 config SOC_CAMERA_MT9T112
 	tristate "mt9t112 support"
@@ -895,215 +857,6 @@ config SOC_CAMERA_OV772X
 	depends on SOC_CAMERA && I2C
 	help
 	  This is a ov772x camera driver
-
-config SOC_CAMERA_OV7675
-	tristate "ov7675 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov7675 camera driver
-
-config SOC_CAMERA_OV2655
-	tristate "ov2655 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov2655 camera driver
-
-config SOC_CAMERA_OV2655_BACK
-	tristate "ov2655_back camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov2655_back camera driver
-
-config SOC_CAMERA_OV2659
-	tristate "ov2659 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov2659 camera driver
-	  
-config SOC_CAMERA_OV7690
-	tristate "ov7690 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov7690 camera driver	  
-
-config SOC_CAMERA_OV9650
-	tristate "ov9650 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov9650 camera driver
-
-config SOC_CAMERA_OV2640
-	tristate "ov2640 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov2640 camera driver
-
-config SOC_CAMERA_OV3640
-	tristate "ov3640 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov3640 camera driver
-choice
-	prompt "OV3640 Module Focus select"
-	depends on SOC_CAMERA_OV3640
-	default OV3640_AUTOFOCUS
-	---help---
-
-config OV3640_AUTOFOCUS
-	bool "OV3640 auto focus"
-
-config OV3640_FIXEDFOCUS
-	bool "OV3640 fixed focus"
-endchoice
-
-config SOC_CAMERA_OV5642
-	tristate "ov5642 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov5642 camera driver
-choice
-	prompt "OV5642 Module Focus select"
-	depends on SOC_CAMERA_OV5642
-	default OV5642_AUTOFOCUS
-	---help---
-
-config OV5642_AUTOFOCUS
-	bool "OV5642 auto focus"
-
-config OV5642_FIXEDFOCUS
-	bool "OV5642 fixed focus"
-endchoice
-
-config SOC_CAMERA_OV5640
-	tristate "ov5640 camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov5640 camera driver
-choice
-	prompt "OV5640 Module Focus select"
-	depends on SOC_CAMERA_OV5640
-	default OV5640_AUTOFOCUS
-	---help---
-
-config OV5640_AUTOFOCUS
-	bool "OV5640 auto focus"
-
-config OV5640_FIXEDFOCUS
-	bool "OV5640 fixed focus"
-endchoice
-
-config SOC_CAMERA_OV5640_FOR_TD8801
-	tristate "ov5640 camera support for td8801"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a ov5640 camera driver for td8801
-choice
-	prompt "OV5640 Module Focus select"
-	depends on SOC_CAMERA_OV5640_FOR_TD8801
-	default OV5640_AUTOFOCUS_FOR_TD8801
-	---help---
-
-config OV5640_AUTOFOCUS_FOR_TD8801
-	bool "OV5640 auto focus"
-
-config OV5640_FIXEDFOCUS_FOR_TD8801
-	bool "OV5640 fixed focus"
-endchoice
-
-config SOC_CAMERA_S5K6AA
-	tristate "Samsung S5K6AA camera support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a samsung S5K6AA camera driver
-
-config SOC_CAMERA_GT2005
-	tristate "GT2005 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GT2005 camera driver
-
-config SOC_CAMERA_GT2005_BACK
-	tristate "GT2005_BACK support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GT2005_BACK camera driver
-
-config SOC_CAMERA_GC0307
-	tristate "GC0307 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GC0307 camera driver	   
-
-config SOC_CAMERA_GC0308
-	tristate "GC0308 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GC0308 camera driver
-
-config SOC_CAMERA_GC0309
-	tristate "GC0309 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GC0309 camera driver
-config SOC_CAMERA_GC0309_FOR_TD8801
-	tristate "GC0309 support for td8801"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GC0309 camera driver for td8801
-
-config SOC_CAMERA_GC2015
-	tristate "GC2015 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a GC2015 camera driver
-
-config SOC_CAMERA_HI253
-	tristate "HI253 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a HI253 camera driver
-
-config SOC_CAMERA_HI704
-	tristate "HI704 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a HI704 camera driver
-
-config SOC_CAMERA_SIV120B
-	tristate "siv120b support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a SIV120B camera driver
-
-config SOC_CAMERA_SID130B
-	tristate "sid130b support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a SID130B camera driver
-
-config SOC_CAMERA_NT99250
-	tristate "NT99250 support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a NT99250 camera driver
-
-config SOC_CAMERA_FCAM
-	tristate "FCAM support"
-	depends on SOC_CAMERA && I2C
-	help
-	  ha ha
-
-config SOC_CAMERA_BCAM
-	tristate "BCAM support"
-	depends on SOC_CAMERA && I2C
-	help
-	  ha ha
-
-config SOC_CAMERA_NT99250_BACK
-	tristate "NT99250_BACK support"
-	depends on SOC_CAMERA && I2C
-	help
-	  This is a NT99250_BACK camera driver
 
 config SOC_CAMERA_OV9640
 	tristate "ov9640 camera support"
@@ -1174,55 +927,6 @@ config VIDEO_OMAP2
 	select VIDEOBUF_DMA_SG
 	---help---
 	  This is a v4l2 driver for the TI OMAP2 camera capture interface
-
-config VIDEO_RK29
-	tristate "RK29XX Camera Sensor Interface driver"
-	depends on VIDEO_DEV && ARCH_RK29 && SOC_CAMERA && HAS_DMA
-	select VIDEOBUF_DMA_CONTIG
-	---help---
-	  This is a v4l2 driver for the RK29XX Camera Sensor Interface
-
-choice
-	prompt "RK29XX Camera Sensor Interface Work Mode"
-	depends on VIDEO_RK29
-	default VIDEO_RK29_WORK_ONEFRAME
-	---help---
-		RK29 Camera Sensor Interface(VIP) can work in 2 modes, ie:OneFrame,PingPong.
-
-config VIDEO_RK29_WORK_ONEFRAME
-	bool "VIP OneFrame Mode"
-
-config VIDEO_RK29_WORK_PINGPONG
-	bool "VIP PingPong Mode"
-
-endchoice
-
-choice
-	prompt "RK29XX camera sensor interface work with IPP "
-	depends on VIDEO_RK29 && RK29_IPP
-	default VIDEO_RK29_WORK_IPP
-	---help---
-		RK29 Camera Sensor Interface(VIP) can work with IPP or not IPP
-
-config VIDEO_RK29_WORK_IPP
-	bool "VIP work with IPP"
-
-config VIDEO_RK29_WORK_NOT_IPP
-	bool "VIP don't work with IPP"
-
-endchoice
-choice
-	prompt "RK29XX camera digital zoom with IPP "
-	depends on VIDEO_RK29 && RK29_IPP && VIDEO_RK29_WORK_IPP
-	default VIDEO_RK29_DIGITALZOOM_IPP_ON
-	---help---
-		RK29 Camera digital zoom with IPP
-config VIDEO_RK29_DIGITALZOOM_IPP_ON
-	bool "Digital zoom with IPP on"
-
-config VIDEO_RK29_DIGITALZOOM_IPP_OFF
-	bool "Digital zoom with IPP off"
-endchoice
 
 config VIDEO_MX2_HOSTSUPPORT
 	bool
